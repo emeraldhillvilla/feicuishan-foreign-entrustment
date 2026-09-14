@@ -266,6 +266,36 @@
   }
   .up .ico{font-size:18px;display:block;margin-bottom:2px;}
 
+  /* ---------- 决议信息卡 ---------- */
+  .res-card{
+    margin-top:8px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:#fbfdfc;
+    overflow:hidden;
+    page-break-inside:avoid;
+    break-inside:avoid;
+  }
+  .res-card .res-title{
+    background:var(--jade-tint);
+    color:var(--jade-deep);
+    font-size:13.5px;
+    font-weight:800;
+    padding:8px 12px;
+    border-bottom:1px solid var(--line);
+    line-height:1.6;
+  }
+  .res-card .res-row{
+    display:flex;
+    gap:10px;
+    padding:6px 12px;
+    font-size:13px;
+    line-height:1.75;
+  }
+  .res-card .res-row + .res-row{border-top:1px dashed var(--line);}
+  .res-card .res-k{flex:0 0 5.5em;color:var(--ink-faint);}
+  .res-card .res-v{flex:1;color:var(--ink);font-weight:600;}
+
   /* ---------- Helper box（社区代办提示） ---------- */
   .helper{
     margin-top:10px;
@@ -366,6 +396,9 @@
     .up{min-width:0;}
     .note-line{font-size:12px;}
     .helper{font-size:12.5px;padding:9px 12px;}
+    .res-card .res-title{font-size:13px;padding:7px 10px;}
+    .res-card .res-row{font-size:12.5px;padding:5px 10px;}
+    .res-card .res-k{flex:0 0 4.6em;}
     .warn-title{font-size:13px;}
     .warn ul{font-size:12px;}
     .foot{
@@ -464,7 +497,12 @@
       <div class="num">4</div>
       <div class="step-body">
         <div class="step-title">选择投票决议</div>
-        <div class="step-desc">「业主投票委托」页面会<b>自动显示受委托人信息</b>；投票决议信息请选择 <span class="hl">翡翠山1.2期2026</span>。</div>
+        <div class="step-desc">「业主投票委托」页面会<b>自动显示受委托人信息</b>；在决议列表中找到下面这一项，点击「<b>选择这项投票决议</b>」：</div>
+        <div class="res-card">
+          <div class="res-title">翡翠山1-2期别墅小区业主大会表决</div>
+          <div class="res-row"><span class="res-k">投票编号</span><span class="res-v">智慧投票[2026]第2416号</span></div>
+          <div class="res-row"><span class="res-k">小区名称</span><span class="res-v">翡翠山城别墅1、2期</span></div>
+        </div>
       </div>
     </div>
 
