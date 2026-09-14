@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>外籍业主投票委托指南 · Emerald Hill Villa 1.2期2026</title>
+<style>
+  :root{
+    --ink:#1c2b25;
+    --ink-soft:#4a5b53;
+    --ink-faint:#7d8c84;
+    --jade:#0e7a5f;
+    --jade-deep:#0a5c48;
+    --jade-tint:#e8f3ef;
+    --gold:#b98a2f;
+    --gold-tint:#faf3e3;
+    --line:#d9e4df;
+    --paper:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;
+    background:#eef2f0;
+    color:var(--ink);
+    line-height:1.75;
+    padding:32px 16px;
+  }
+
+  /* ---------- A4 Sheet ---------- */
+  .sheet{
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto;
+    background:var(--paper);
+    box-shadow:0 12px 40px rgba(28,43,37,.14);
+    position:relative;
+    overflow:hidden;
+    padding:16mm 16mm 18mm;
+  }
+
+  /* ---------- Header ---------- */
+  .masthead{
+    border-bottom:2.5px solid var(--jade);
+    padding-bottom:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:16px;
+  }
+  .kicker{
+    font-size:12px;
+    letter-spacing:.35em;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  h1{
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:.02em;
+    color:var(--jade-deep);
+    line-height:1.25;
+  }
+  h1 small{
+    display:block;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+    margin-top:6px;
+    letter-spacing:.05em;
+  }
+  .badge{
+    flex-shrink:0;
+    text-align:center;
+    border:1.5px solid var(--jade);
+    border-radius:10px;
+    padding:10px 14px;
+    color:var(--jade-deep);
+    background:var(--jade-tint);
+  }
+  .badge .big{font-size:20px;font-weight:800;line-height:1.2;}
+  .badge .sub{font-size:11px;letter-spacing:.15em;margin-top:2px;}
+
+  /* ---------- Path strip ---------- */
+  .path-strip{
+    margin:16px 0 22px;
+    background:var(--jade-tint);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 16px;
+    font-size:12.5px;
+    color:var(--jade-deep);
+    font-weight:600;
+    line-height:2;
+  }
+  .path-strip .tag{
+    display:inline-block;
+    background:var(--jade);
+    color:#fff;
+    font-size:11px;
+    border-radius:999px;
+    padding:1px 10px;
+    margin-right:8px;
+    vertical-align:1px;
+    letter-spacing:.1em;
+  }
+  .path-strip .arrow{color:var(--gold);font-weight:800;padding:0 3px;}
+
+  /* ---------- Steps ---------- */
+  .steps{display:flex;flex-direction:column;gap:14px;}
+  .step{
+    display:flex;
+    gap:16px;
+    page-break-inside:avoid;
+    break-inside:avoid;
+  }
+  .num{
+    flex-shrink:0;
+    width:34px;height:34px;
+    border-radius:50%;
+    background:var(--jade);
+    color:#fff;
+    font-size:16px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:2px;
+    box-shadow:0 3px 8px rgba(14,122,95,.3);
+  }
+  .step-body{flex:1;border-bottom:1px dashed var(--line);padding-bottom:12px;}
+  .step:last-child .step-body{border-bottom:none;}
+  .step-title{
+    font-size:16px;font-weight:700;color:var(--ink);
+    margin-bottom:4px;
+  }
+  .step-desc{font-size:13.5px;color:var(--ink-soft);}
+  .step-desc b{color:var(--jade-deep);}
+
+  /* highlight chips */
+  .hl{
+    display:inline-block;
+    background:var(--jade-tint);
+    border:1px solid #b8d8cd;
+    border-radius:6px;
+    padding:0 6px;
+    font-weight:700;
+    color:var(--jade-deep);
+    font-size:13px;
+    margin:0 1px;
+  }
+
+  /* ---------- Warning box ---------- */
+  .warn{
+    margin-top:22px;
+    background:var(--gold-tint);
+    border:1px solid #e6cf9b;
+    border-left:5px solid var(--gold);
+    border-radius:8px;
+    padding:14px 18px;
+    page-break-inside:avoid;
+  }
+  .warn-title{
+    font-size:14px;font-weight:800;color:#8a6414;
+    margin-bottom:6px;letter-spacing:.05em;
+  }
+  .warn ul{list-style:none;font-size:13px;color:#6b5426;}
+  .warn li{padding-left:18px;position:relative;margin:3px 0;}
+  .warn li::before{
+    content:"◆";
+    position:absolute;left:0;top:0;
+    color:var(--gold);font-size:10px;top:5px;
+  }
+
+  /* ---------- Download bar ---------- */
+  .dl-bar{
+    margin:0 0 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    background:linear-gradient(135deg,var(--jade) 0%,var(--jade-deep) 100%);
+    border-radius:10px;
+    padding:14px 18px;
+    page-break-inside:avoid;
+  }
+  .dl-bar .txt{color:#fff;}
+  .dl-bar .txt .t1{font-size:15px;font-weight:800;letter-spacing:.03em;}
+  .dl-bar .txt .t2{font-size:12px;opacity:.85;margin-top:2px;}
+  .dl-btn{
+    flex-shrink:0;
+    display:inline-block;
+    background:#fff;
+    color:var(--jade-deep);
+    font-size:14px;font-weight:800;
+    text-decoration:none;
+    border-radius:999px;
+    padding:9px 22px;
+    letter-spacing:.05em;
+    box-shadow:0 3px 10px rgba(0,0,0,.18);
+  }
+
+  /* ---------- WeChat hint ---------- */
+  .dl-hint{
+    margin:-12px 0 22px;
+    background:#fff8e6;
+    border:1px dashed var(--gold);
+    border-radius:8px;
+    padding:10px 14px;
+    font-size:12.5px;
+    color:#6b5426;
+    line-height:1.9;
+  }
+  .dl-url{
+    display:inline-block;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:2px 8px;
+    margin-top:4px;
+    font-size:12px;
+    color:var(--jade-deep);
+    word-break:break-all;
+    user-select:all;
+    -webkit-user-select:all;
+  }
+
+  /* ---------- Alert box ---------- */
+  .alert{
+    margin:0 0 22px;
+    background:#fdf1ec;
+    border:1px solid #efc4ae;
+    border-left:5px solid #c2501f;
+    border-radius:8px;
+    padding:14px 18px;
+    page-break-inside:avoid;
+  }
+  .alert-title{
+    font-size:15px;font-weight:800;color:#a03c10;
+    margin-bottom:6px;letter-spacing:.05em;
+  }
+  .alert p{font-size:13.5px;color:#7c4a2e;margin:4px 0;}
+  .alert b{color:#a03c10;}
+
+  /* ---------- Upload list ---------- */
+  .uploads{
+    display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;
+  }
+  .up{
+    flex:1;min-width:120px;
+    border:1.5px solid var(--line);
+    border-radius:8px;
+    padding:8px 10px;
+    text-align:center;
+    font-size:12.5px;font-weight:700;color:var(--jade-deep);
+    background:#fbfdfc;
+  }
+  .up .ico{font-size:18px;display:block;margin-bottom:2px;}
+
+  .note-line{
+    margin-top:8px;
+    font-size:12.5px;
+    color:var(--ink-faint);
+    line-height:1.8;
+    background:#f7faf9;
+    border-left:3px solid var(--line);
+    padding:6px 10px;
+    border-radius:0 6px 6px 0;
+  }
+  .note-line b{color:var(--jade-deep);}
+
+  /* ---------- Footer ---------- */
+  .foot{
+    margin-top:26px;
+    padding-top:12px;
+    border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:11.5px;color:var(--ink-faint);
+  }
+  .foot .sig{font-weight:700;color:var(--jade);letter-spacing:.2em;}
+
+  /* ---------- Mobile Responsive ---------- */
+  @media screen and (max-width:768px){
+    body{padding:0;background:#fff;}
+    .sheet{
+      width:100%;
+      min-height:auto;
+      box-shadow:none;
+      padding:20px 16px 28px;
+    }
+    .masthead{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:12px;
+    }
+    h1{font-size:22px;}
+    h1 small{font-size:12.5px;}
+    .kicker{font-size:11px;letter-spacing:.2em;}
+    .badge{
+      display:flex;align-items:center;gap:8px;
+      padding:8px 14px;
+    }
+    .badge .big{font-size:16px;}
+    .badge .sub{margin-top:0;}
+    .path-strip{font-size:12px;padding:10px 12px;}
+    .alert-title{font-size:14px;}
+    .alert p{font-size:12.5px;}
+    .dl-bar{
+      flex-direction:column;
+      align-items:stretch;
+      text-align:center;
+      gap:10px;
+    }
+    .dl-btn{padding:11px 22px;font-size:15px;}
+    .step{gap:12px;}
+    .num{width:28px;height:28px;font-size:14px;}
+    .step-title{font-size:14.5px;}
+    .step-desc{font-size:12.5px;}
+    .uploads{flex-direction:column;}
+    .up{min-width:0;}
+    .note-line{font-size:12px;}
+    .warn-title{font-size:13px;}
+    .warn ul{font-size:12px;}
+    .foot{
+      flex-direction:column;
+      gap:4px;
+      text-align:center;
+      align-items:center;
+    }
+  }
+
+  /* ---------- Print ---------- */
+  @page{size:A4;margin:0;}
+  @media print{
+    body{background:#fff;padding:0;}
+    .sheet{box-shadow:none;margin:0;width:210mm;min-height:297mm;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- 页眉 -->
+  <div class="masthead">
+    <div>
+      <div class="kicker">粤省事 · 外籍业主投票委托办理指引</div>
+      <h1>外籍业主 · 受委托人投票指南
+        <small>港籍 · 澳籍 · 台籍及持外国护照人士 ｜ 翡翠山 1.2 期 Emerald Hill Villa ｜ 2026 业主投票决议</small>
+      </h1>
+    </div>
+    <div class="badge">
+      <div class="big">9 步</div>
+      <div class="sub">轻松完成</div>
+    </div>
+  </div>
+
+  <!-- 办理路径 -->
+  <div class="path-strip">
+    <span class="tag">办理路径</span>
+    粤省事 <span class="arrow">▸</span> 惠州 <span class="arrow">▸</span> 办事 <span class="arrow">▸</span> 人脸识别 <span class="arrow">▸</span> 住房置业 <span class="arrow">▸</span> 住房服务 <span class="arrow">▸</span> 业主投票决议 <span class="arrow">▸</span> 开始投票 <span class="arrow">▸</span> 无法查询到投票议题 <span class="arrow">▸</span> 业主投票委托
+  </div>
+
+  <!-- 委托书下载 -->
+  <div class="dl-bar">
+    <div class="txt">
+      <div class="t1">📎 业主投票授权书（委托书）</div>
+      <div class="t2">请先下载并打印填写，办理时需上传签署好的委托书照片</div>
+    </div>
+    <a class="dl-btn" href="https://share.traecontent.cn/artifact/7EL6_23OQQUOCF">下载 / 打印委托书</a>
+  </div>
+  <div class="dl-hint" id="dlHint" style="display:none;">
+    <b>📱 微信内打开提示：</b>如点击按钮无反应，请<b>长按下方链接复制</b>，或点右上角「···」选择「在浏览器打开」：<br>
+    <span class="dl-url">https://share.traecontent.cn/artifact/7EL6_23OQQUOCF</span>
+  </div>
+
+  <!-- 重要提醒 -->
+  <div class="alert">
+    <div class="alert-title">‼ 重要提醒：办理时间请留意</div>
+    <p><b>① 投票未开始前，无法办理授权。</b>必须等投票正式开始后，才可以进入系统办理委托授权。投票开始前进入系统是做不了任何操作的，请勿提前尝试。</p>
+    <p><b>② 投票开始后，请尽早办理，切勿等到最后一日。</b>因为委托授权需要后台审批，审批需要一定时间；如果等到最后一日才提交，很可能来不及完成审批，导致无法投票。</p>
+  </div>
+
+  <!-- 步骤 -->
+  <div class="steps">
+
+    <div class="step">
+      <div class="num">1</div>
+      <div class="step-body">
+        <div class="step-title">确认受委托人资格</div>
+        <div class="step-desc">受委托人必须是<b>中国公民身份证持有人</b>，请提前确认其身份证在有效期内。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">2</div>
+      <div class="step-body">
+        <div class="step-title">登录粤省事</div>
+        <div class="step-desc">受委托人登录<span class="hl">粤省事</span>小程序，办理委托授权手续。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">3</div>
+      <div class="step-body">
+        <div class="step-title">进入业主投票委托入口</div>
+        <div class="step-desc">依次点击：<span class="hl">粤省事</span> → <span class="hl">惠州</span> → <span class="hl">办事</span> → <span class="hl">人脸识别</span> → <span class="hl">住房置业</span> → <span class="hl">住房服务</span> → <span class="hl">业主投票决议</span> → <span class="hl">开始投票</span> → <span class="hl">无法查询到投票议题</span> → <span class="hl">业主投票委托</span>。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">4</div>
+      <div class="step-body">
+        <div class="step-title">选择投票决议</div>
+        <div class="step-desc">「业主投票委托」页面会<b>自动显示受委托人信息</b>；投票决议信息请选择 <span class="hl">翡翠山1.2期2026</span>。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">5</div>
+      <div class="step-body">
+        <div class="step-title">填写委托人信息</div>
+        <div class="step-desc">委托人信息包括<b>姓名</b>和<b>身份证件号码</b>（香港身份证 / 澳门身份证 / 台胞证 / 外国护照等有效证件），须填写清楚、与证件完全一致。<br><b style="color:#8a6414;">注意：括号必须使用英文括号 ( )，不要使用中文括号（ ）。</b></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">6</div>
+      <div class="step-body">
+        <div class="step-title">上传所需照片</div>
+        <div class="step-desc">请上传以下三项资料的照片（委托书可点击<a href="https://share.traecontent.cn/artifact/7EL6_23OQQUOCF" target="_blank" rel="noopener" style="color:var(--jade-deep);font-weight:700;">此处下载/打印</a>）：</div>
+        <div class="uploads">
+          <div class="up"><span class="ico">📄</span>委托书</div>
+          <div class="up"><span class="ico">🪪</span>业主身份证明文件</div>
+          <div class="up"><span class="ico">🏠</span>房产证</div>
+        </div>
+        <div class="note-line">身份证明文件按业主实际证件提供：香港身份证 / 澳门身份证（需<b>底面</b>）、台胞证、外国护照（需<b>资料页</b>）。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">7</div>
+      <div class="step-body">
+        <div class="step-title">等待后台审批</div>
+        <div class="step-desc">上传提交之后可能需要<b>稍等片刻</b>，待后台审批通过后，受委托人方可进行投票。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">8</div>
+      <div class="step-body">
+        <div class="step-title">查询办理进度</div>
+        <div class="step-desc">提交后可在<b>个人中心</b>查看办理进度：返回首页，依次点击 <span class="hl">底部「我的」</span> → <span class="hl">办事记录</span> → <span class="hl">业主投票委托</span>。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">9</div>
+      <div class="step-body">
+        <div class="step-title">审核通过后正式投票</div>
+        <div class="step-desc">审核通过后，受委托人即可在<span class="hl">住房置业</span>中查看投票内容，并进行投票。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 温馨提示 -->
+  <div class="warn">
+    <div class="warn-title">★ 温馨提示</div>
+    <ul>
+      <li>填写身份证件号码时，括号一律使用英文半角括号 ( )，请勿使用中文全角括号（ ）。</li>
+      <li>不同证件类型请对应上传：香港／澳门身份证提供底面，台胞证、外国护照提供资料页。</li>
+      <li>受委托人（代办人）必须是中国公民身份证持有人，请提前确认其身份证在有效期内。</li>
+      <li>照片请确保清晰、完整，避免因模糊导致审核退回。</li>
+      <li>授权办理的时机：投票开始后才能办理授权；投票一开始请尽早提交，切勿拖到最后一日，以免审批不及。</li>
+      <li>审核通过前，「业主投票决议」中可能无法查询到投票议题，属正常现象。</li>
+    </ul>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="foot">
+    <span>翡翠山 1.2 期 · Emerald Hill Villa · 2026 业主投票</span>
+    <span class="sig">粤省事 · 惠州 · 住房服务</span>
+    <span>版本：2026-09-14 V7</span>
+  </div>
+
+</div>
+<script>
+(function(){
+  var ua = navigator.userAgent.toLowerCase();
+  var isWeChat = ua.indexOf('micromessenger') !== -1;
+  var hint = document.getElementById('dlHint');
+  if(isWeChat && hint){ hint.style.display = 'block'; }
+})();
+</script>
+</body>
+</html>
