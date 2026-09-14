@@ -266,6 +266,41 @@
   }
   .up .ico{font-size:18px;display:block;margin-bottom:2px;}
 
+  /* ---------- Helper box（社区代办提示） ---------- */
+  .helper{
+    margin-top:10px;
+    background:var(--jade-tint);
+    border:1px solid #b8d8cd;
+    border-left:4px solid var(--jade);
+    border-radius:0 8px 8px 0;
+    padding:10px 14px;
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.9;
+    page-break-inside:avoid;
+    break-inside:avoid;
+  }
+  .helper .h-tag{
+    display:inline-block;
+    background:var(--jade);
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    border-radius:999px;
+    padding:1px 10px;
+    margin-right:8px;
+    letter-spacing:.08em;
+    vertical-align:1px;
+  }
+  .helper b{color:var(--jade-deep);}
+  .helper .tel{
+    display:inline-block;
+    font-weight:800;
+    color:var(--jade-deep);
+    letter-spacing:.04em;
+    white-space:nowrap;
+  }
+
   .note-line{
     margin-top:8px;
     font-size:12.5px;
@@ -328,6 +363,7 @@
     .uploads{flex-direction:column;}
     .up{min-width:0;}
     .note-line{font-size:12px;}
+    .helper{font-size:12.5px;padding:9px 12px;}
     .warn-title{font-size:13px;}
     .warn ul{font-size:12px;}
     .foot{
@@ -397,6 +433,10 @@
       <div class="step-body">
         <div class="step-title">确认受委托人资格</div>
         <div class="step-desc">受委托人必须是<b>中国公民身份证持有人</b>，请提前确认其身份证在有效期内。</div>
+        <div class="helper">
+          <span class="h-tag">没有内地亲友？</span>可联系<b>山河社区</b>工作人员<b>唐旭龙</b>，由其协助担任受委托人。<br>
+          联系电话：<span class="tel">0752-5555455</span>
+        </div>
       </div>
     </div>
 
