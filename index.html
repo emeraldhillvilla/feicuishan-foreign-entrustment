@@ -446,11 +446,11 @@
       <div class="t1">📎 业主投票授权书（委托书）</div>
       <div class="t2">请先下载并打印填写，办理时需上传签署好的委托书照片</div>
     </div>
-    <a class="dl-btn" href="https://share.traecontent.cn/artifact/7EL6_23OQQUOCF">下载 / 打印委托书</a>
+    <a class="dl-btn" href="./assets/授权代理委托书.html" target="_blank" rel="noopener">下载 / 打印委托书</a>
   </div>
   <div class="dl-hint" id="dlHint" style="display:none;">
     <b>📱 微信内打开提示：</b>如点击按钮无反应，请<b>长按下方链接复制</b>，或点右上角「···」选择「在浏览器打开」：<br>
-    <span class="dl-url">https://share.traecontent.cn/artifact/7EL6_23OQQUOCF</span>
+    <span class="dl-url" id="dlUrl"></span>
   </div>
 
   <!-- 重要提醒 -->
@@ -518,7 +518,7 @@
       <div class="num">6</div>
       <div class="step-body">
         <div class="step-title">上传所需照片</div>
-        <div class="step-desc"><b>由受委托人</b>拍照上传以下三项资料（委托书可点击<a href="https://share.traecontent.cn/artifact/7EL6_23OQQUOCF" target="_blank" rel="noopener" style="color:var(--jade-deep);font-weight:700;">此处下载/打印</a>）：</div>
+        <div class="step-desc"><b>由受委托人</b>拍照上传以下三项资料（委托书可点击<a href="./assets/授权代理委托书.html" target="_blank" rel="noopener" style="color:var(--jade-deep);font-weight:700;">此处下载/打印</a>）：</div>
         <div class="uploads">
           <div class="up"><span class="ico">📄</span>委托书</div>
           <div class="up"><span class="ico">🪪</span>业主身份证明文件<br>（正面＋背面）</div>
@@ -587,6 +587,11 @@
   var isWeChat = ua.indexOf('micromessenger') !== -1;
   var hint = document.getElementById('dlHint');
   if(isWeChat && hint){ hint.style.display = 'block'; }
+  // 委托书的站内绝对地址（微信内供长按复制）
+  var url = document.getElementById('dlUrl');
+  if(url){
+    url.textContent = location.origin + location.pathname.replace(/index\.html$/, '') + 'assets/授权代理委托书.html';
+  }
 })();
 </script>
 </body>

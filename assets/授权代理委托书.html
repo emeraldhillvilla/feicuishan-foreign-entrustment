@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<title>授权代理委托书（大亚湾翡翠山别墅小区）</title>
+<script src="./vendor/html-to-image.min.js"></script>
+<script src="./vendor/jspdf.umd.min.js"></script>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #e8e6e1;
+    font-family: "Songti SC", "STSong", "SimSun", "Noto Serif CJK SC", serif;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- 工具栏（打印时隐藏） ---------- */
+  .toolbar {
+    width: 210mm;
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .toolbar button {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    padding: 9px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #2f3a4a;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: background .2s ease, opacity .2s ease;
+  }
+  .toolbar button:hover { background: #45536a; }
+  .toolbar button:disabled { opacity: .55; cursor: wait; }
+  .toolbar button.btn-download { background: #8a5a2b; }
+  .toolbar button.btn-download:hover { background: #a06c36; }
+
+  /* ---------- A4 纸张 ---------- */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--paper);
+    box-shadow: 0 4px 24px rgba(0,0,0,.14), 0 1px 4px rgba(0,0,0,.08);
+    padding: 20mm 22mm 16mm 22mm;
+    position: relative;
+  }
+
+  /* ---------- 标题 ---------- */
+  .doc-title {
+    text-align: center;
+    font-size: 24pt;
+    font-weight: 700;
+    letter-spacing: 7px;
+    text-indent: 7px; /* 视觉居中补偿 */
+    margin-bottom: 4mm;
+  }
+
+  .doc-subtitle {
+    text-align: center;
+    font-size: 14pt;
+    letter-spacing: 2px;
+    margin-bottom: 8mm;
+  }
+
+  /* ---------- 正文 ---------- */
+  .doc-body {
+    font-size: 12.5pt;
+    line-height: 1.8;
+    text-align: justify;
+  }
+
+  .doc-body p { margin-bottom: 3mm; }
+
+  .indent { text-indent: 2em; }
+
+  /* 填空下划线 */
+  .blank {
+    display: inline-block;
+    border-bottom: 1.2px solid var(--ink);
+    vertical-align: baseline;
+    height: 1em;
+    line-height: 1;
+  }
+  .w-name   { width: 62mm; }
+  .w-short  { width: 14mm; }
+  .w-mid    { width: 34mm; }
+  .w-long   { width: 58mm; }
+  .w-year   { width: 16mm; }
+  .w-month  { width: 10mm; }
+  .w-day    { width: 10mm; }
+
+  /* ---------- 签署区 ---------- */
+  .signature {
+    margin-top: 10mm;
+    font-size: 13pt;
+    line-height: 2.1;
+  }
+
+  .sig-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 4mm;
+    margin-bottom: 3mm;
+  }
+
+  .sig-row .blank { width: 66mm; }
+
+  .date-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+  }
+
+  /* ---------- 微信内保存引导浮层 ---------- */
+  .wx-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.88);
+    z-index: 999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0 40px;
+  }
+
+  .wx-tip {
+    position: sticky;
+    top: 0;
+    background: #2f3a4a;
+    color: #fff;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: center;
+    padding: 14px 16px;
+  }
+
+  .wx-tip .wx-sub { color: #b8c2d0; font-size: 12px; }
+
+  .wx-tip button {
+    margin-top: 8px;
+    font-size: 13px;
+    padding: 6px 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: transparent;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+
+  .wx-overlay img {
+    display: block;
+    width: 100%;
+    max-width: 210mm;
+    margin: 12px auto 0;
+    background: #fff;
+  }
+
+  /* ---------- 打印 ---------- */
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  @media print {
+    body { background: none; padding: 0; display: block; }
+    .toolbar { display: none; }
+    .page {
+      width: auto;
+      min-height: auto;
+      box-shadow: none;
+      padding: 20mm 22mm 16mm 22mm;
+    }
+  }
+
+  @media screen and (max-width: 820px) {
+    .page { width: 100%; padding: 40px 24px; }
+    .doc-title { font-size: 22pt; letter-spacing: 6px; }
+    .toolbar { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button id="btnDownload" class="btn-download" onclick="downloadPDF()">下载 PDF</button>
+    <button onclick="handlePrint()">打 印</button>
+  </div>
+
+  <!-- 微信内无法触发文件下载，改为全屏展示图片引导长按保存 -->
+  <div id="wxOverlay" class="wx-overlay" style="display:none">
+    <div class="wx-tip">
+      <div>微信内无法直接下载文件</div>
+      <div>请<b>长按下方图片</b>，选择「保存到手机」</div>
+      <div class="wx-sub">或点击右上角「···」→「在浏览器打开」，再下载 PDF</div>
+      <button onclick="closeOverlay()">关 闭</button>
+    </div>
+    <img id="wxImage" alt="授权代理委托书">
+  </div>
+
+  <div class="page">
+    <h1 class="doc-title">授权代理委托书</h1>
+    <div class="doc-subtitle">（大亚湾翡翠山别墅小区）</div>
+
+    <div class="doc-body">
+      <p class="indent">本人（单位）<span class="blank w-name"></span>拥有名下位于惠州市大亚湾西区大亚湾大道 232 号翡翠山城&nbsp;爱丁堡&nbsp;/&nbsp;红郡<span class="blank w-short"></span>栋<span class="blank w-short"></span>号不动产，产权登记证书号：<span class="blank w-mid"></span>。现授权委托代理人<span class="blank w-name"></span>（中华人民共和国居民身份证号：<span class="blank w-long"></span>）代理参加&ldquo;翡翠山别墅 1-2 期小区 2025-2026 年度业主大会临时会议&rdquo;，并在会议召开的全过程中就本次会议议题相关内容代理行使知情、议事及投票（表决）权力。</p>
+
+      <p class="indent">本授权代理委托有效期限自签发日起至本次业主大会临时会议最终结束时止。</p>
+
+      <p class="indent">附：代理人身份证明复印件、产权登记证书复印件（如产权登记证书为单位法人的，需另附法定代表人身份证明书原件）。</p>
+    </div>
+
+    <div class="signature">
+      <div class="sig-row">
+        <span>授权人签字捺印（单位章）：</span><span class="blank"></span>
+      </div>
+      <div class="date-row">
+        <span>授权签发日期：</span><span class="blank w-year"></span>年<span class="blank w-month"></span>月<span class="blank w-day"></span>日
+      </div>
+    </div>
+  </div>
+
+<script>
+  var isWeChat = /MicroMessenger/i.test(navigator.userAgent);
+
+  function closeOverlay() {
+    document.getElementById('wxOverlay').style.display = 'none';
+  }
+
+  function showOverlay(dataUrl) {
+    document.getElementById('wxImage').src = dataUrl;
+    document.getElementById('wxOverlay').style.display = 'block';
+  }
+
+  // 生成 A4 高清图片：
+  // 1) 锁定 A4 宽度像素，高度自适应内容（不再固定高度，避免底部被裁）；
+  // 2) 渲染后用 canvas 以 contain 方式适配成标准 A4 比例白底，内容完整、比例恒为 A4；
+  // 3) 偏移样式只加在屏外容器上，避免内容移出画布。
+  var A4_W = 794;   // A4 宽 @96dpi
+  var A4_H = 1123;  // A4 高 @96dpi
+
+  function generateImage(onDone, onFail) {
+    var original = document.querySelector('.page');
+
+    var node = original.cloneNode(true);
+    node.style.boxShadow = 'none';
+    node.style.margin = '0';
+    node.style.width = A4_W + 'px';
+    node.style.height = 'auto';
+    node.style.minHeight = A4_H + 'px';
+    node.style.padding = '76px 83px 60px 83px'; // 20/22/16/22mm
+
+    var holder = document.createElement('div');
+    holder.style.cssText = 'position:fixed;left:-10000px;top:0;width:' + A4_W + 'px;';
+    holder.appendChild(node);
+    document.body.appendChild(holder);
+
+    htmlToImage.toJpeg(node, {
+      quality: 0.98,
+      pixelRatio: 2,
+      backgroundColor: '#ffffff'
+    }).then(function (dataUrl) {
+      document.body.removeChild(holder);
+      normalizeA4(dataUrl, function (normalized) { onDone(normalized || dataUrl); });
+    }).catch(function (err) {
+      if (holder.parentNode) document.body.removeChild(holder);
+      onFail(err);
+    });
+  }
+
+  // 把任意比例的内容图 contain 到标准 A4 比例白底上，绝不裁切内容
+  function normalizeA4(dataUrl, cb) {
+    var img = new Image();
+    img.onload = function () {
+      var srcW = img.width, srcH = img.height;
+      var outH = srcH;
+      var outW = Math.round(srcH * A4_W / A4_H);
+
+      var canvas = document.createElement('canvas');
+      canvas.width = outW;
+      canvas.height = outH;
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, outW, outH);
+
+      var scale = Math.min(outW / srcW, outH / srcH);
+      var w = srcW * scale, h = srcH * scale;
+      ctx.drawImage(img, (outW - w) / 2, (outH - h) / 2, w, h);
+      cb(canvas.toDataURL('image/jpeg', 0.98));
+    };
+    img.onerror = function () { cb(null); };
+    img.src = dataUrl;
+  }
+
+  function downloadPDF() {
+    var btn = document.getElementById('btnDownload');
+
+    if (typeof htmlToImage === 'undefined' || !window.jspdf) {
+      alert('组件加载失败，请刷新页面重试。\n仍不行可改用浏览器打开本页。');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = '生成中…';
+
+    function restore() {
+      btn.disabled = false;
+      btn.textContent = '下载 PDF';
+    }
+
+    generateImage(function (dataUrl) {
+      if (isWeChat) {
+        // 微信 WebView 拦截 JS 触发的文件下载，改为全屏展示图片引导长按保存
+        showOverlay(dataUrl);
+      } else {
+        var pdf = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+        // 按图片真实宽高比填充 A4 宽，若高度未满则垂直居中，避免任何拉伸
+        var img = new Image();
+        img.onload = function () {
+          var ratio = img.width / img.height;
+          var w = 210, h = 210 / ratio;
+          if (h > 297) { h = 297; w = 297 * ratio; }
+          pdf.addImage(dataUrl, 'JPEG', (210 - w) / 2, (297 - h) / 2, w, h);
+          pdf.save('授权代理委托书.pdf');
+          restore();
+        };
+        img.onerror = function () { restore(); alert('生成失败：图片解析出错'); };
+        img.src = dataUrl;
+      }
+      restore();
+    }, function (err) {
+      restore();
+      alert('生成失败：' + err);
+    });
+  }
+
+  function handlePrint() {
+    // 微信不支持 window.print()，走长按保存图片的流程
+    if (isWeChat) { downloadPDF(); return; }
+    window.print();
+  }
+</script>
+</body>
+</html>
